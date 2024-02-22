@@ -1,0 +1,165 @@
+@import "../../.cache/wal/colors-waybar.css";
+
+/*@define-color foreground #;*/
+/*@define-color background #;*/
+/*@define-color color1 #;*/
+/*@define-color color2 #;*/
+/*@define-color color3 #;*/
+/*@define-color color4 #;*/
+
+* {
+    min-height: 0;
+    border: none;
+    font-family: "Roboto Condensed", sans-serif, "Font Awesome 6 Free" 
+}
+
+window#waybar {
+    background-color: alpha(@background, 0.5);
+    color: @foreground;
+    transition-property: opacity, background-color;
+    transition-duration: 0.5s;
+    border-radius: 10px 10px 0 0;
+    font-size: 12pt;
+}
+
+window#waybar.bottom {
+    border-radius: 0 0 10px 10px;
+}
+
+/*window#waybar.bottom.mode-hide {*/
+    /*border-radius: 10px;*/
+/*}*/
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+window#waybar.empty {
+    border-radius: 10px;
+    /*opacity: 0.5;*/
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+
+.modules-left {
+    margin-left: 15px;
+}
+
+.modules-right {
+    margin-right: 15px;
+}
+
+#workspaces button {
+    margin: 6px 2px;
+    padding: 0;
+    min-width: 24px;
+    min-height: 24px;
+    /*background-color: @foreground;*/
+    /*color: @background;*/
+    background-color: alpha(@color2, 0.5);
+    color: alpha(@foreground, 0.5);
+    border: 1px solid @color3;
+    border-radius: 14px;
+    font-weight: bold;
+}
+
+#workspaces button:first-child {
+    margin-left: 0;
+}
+
+#workspaces button:hover {
+    background-color: @color2;
+    color: @foreground;
+}
+
+#workspaces button.focused, #workspaces button.active {
+    background-color: @color1;
+    color: @foreground;
+}
+
+#workspaces button.urgent {
+    background-color: #eb4d4b;
+}
+
+#mode {
+    margin: 6px;
+    color: @color4;
+    font-weight: bold;
+}
+
+#clock {
+    font-weight: bold;
+}
+
+#battery.charging, #battery.plugged {
+    color: @color1;
+    font-weight: bold;
+}
+
+@keyframes blink {
+    to {
+        color: @color1;
+    }
+}
+
+#battery.critical:not(.charging) {
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+/*label:focus {*/
+    /*background-color: #000000;*/
+/*}*/
+
+#custom-media.custom-spotify {
+    color: #66cc99;
+}
+
+#custom-media.custom-vlc {
+    color: #ffa000;
+}
+
+#workspaces,
+#clock,
+#battery,
+#custom-bluetooth,
+#network,
+#idle_inhibitor,
+#disk,
+#cpu,
+#memory,
+#temperature,
+#custom-media,
+#custom-lockbar,
+#language,
+#language,
+#backlight,
+#pulseaudio,
+#custom-wallpaper,
+#custom-github,
+#custom-weather,
+#tray,
+#custom-power {
+    color: @foreground;
+    margin: 4px 8px;
+}
+
+button:hover {
+    background: transparent;
+}
+
+tooltip {
+    background-color: @foreground;
+    color: @background
+}
