@@ -88,3 +88,5 @@ alias detb="docker exec -e DATABASE_URL="postgres://musashi:san@database/test_ue
 source /usr/share/nvm/init-nvm.sh
 alias kg="docker exec -it musashi-web-1 /bin/bash ps aux | grep -v grep | grep guard | awk '{print $2}' | xargs kill -9 "
 alias deg="det bundle exec guard"
+
+alias ls="eza"
