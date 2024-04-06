@@ -191,4 +191,3 @@ alias ls="eza"
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 ZSH_DISABLE_COMPFIX=1
-
