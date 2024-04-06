@@ -192,4 +192,3 @@ alias ls="eza"
 
 ZSH_DISABLE_COMPFIX=1
 
-export ZSH_ASK_API_KEY="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"
