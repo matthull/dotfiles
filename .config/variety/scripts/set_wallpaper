@@ -282,6 +282,7 @@ then
     wal -n -i "$WP"
     killall dunst
     killall -SIGUSR2 waybar
+    pywalfox update
 fi
 
 # =====================================================================================

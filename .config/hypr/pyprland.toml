@@ -8,6 +8,7 @@ class = "kitty-dropterm"
 size = "75% 60%"
 max_size = "1920px 100%"
 margin = 50
+unfocus = "hide"
 
 [scratchpads.volume]
 animation = "fromRight"
@@ -16,3 +17,36 @@ class = "pavucontrol"
 size = "40% 90%"
 unfocus = "hide"
 lazy = true
+
+[scratchpads.linear]
+animation = "fromRight"
+class = "chrome-linear.app__userevidence_my-issues_assigned-Default"
+command = "google-chrome-stable --app=https://linear.app/userevidence/my-issues/assigned"
+size = "50% 90%"
+lazy = false
+unfocus = "hide"
+process_tracking = false
+
+[scratchpads.notion]
+animation = "fromLeft"
+class = "chrome-www.notion.so__userevidence_-Default"
+command = "google-chrome-stable --app=https://notion.so/userevidence"
+size = "25% 25%"
+lazy = false
+process_tracking = false
+
+[scratchpads.slack]
+animation = "fromLeft"
+class = "Slack"
+command = "slack"
+size = "70% 90%"
+lazy = true
+process_tracking = false
+
+[scratchpads.spotify]
+animation = "fromBottom"
+class = "Spotify"
+command = "spotify"
+size = "70% 90%"
+lazy = false
+unfocus = "hide"
