@@ -1,10 +1,3 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -15,7 +8,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="powerlevel10k/powerlevel10k"
+ZSH_THEME="robbyrussell"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -77,7 +70,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting zsh-ask)
+plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -106,88 +99,5 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-fpath=($HOME/completion_zsh $fpath)
-
-# Location of dotfiles
-# export DOTFILES=$HOME/.dotfiles
-
-HISTSIZE=1000
-SAVEHIST=1000
-HISTFILE=~/.history
-
-# share history between shells and eliminate dupe commands
-setopt sharehistory histignorealldups
-
-# enable fancy globbing
-setopt extendedglob
-
-# prevent dupes in path array
-typeset -U path
-
-# get list of zsh files
-# typeset -U config_files
-# config_files=($DOTFILES/**/*.zsh)
-
-# Load the path files
-# for file in ${(M)config_files:#*/path.zsh}
-# do
-#   source $file
-# done
-
-# Now load everything else
-# for file in ${config_files:#*/path.zsh}
-# do
-#   source $file
-# done
-
-# unset config_files
-
-bindkey -v
-bindkey "^R" history-incremental-search-backward
-bindkey '^T' autosuggest-accept
-autoload -U history-search-end
-
-zle -N history-beginning-search-backward-end history-search-end
-zle -N history-beginning-search-forward-end history-search-end
-
-bindkey "^[OA" history-beginning-search-backward-end
-bindkey "^[OB" history-beginning-search-forward-end
-bindkey "^P" history-beginning-search-backward-end
-bindkey "^N" history-beginning-search-forward-end
-
-export PATH=./bin:$PATH
-
-# export PATH="./pythonenv/bin:$PATH"
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-
-autoload bashcompinit && bashcompinit
-autoload -Uz compinit && compinit
-compinit
-
-source /usr/share/chruby/chruby.sh
-export COMPOSE_FILE=~/code/musashi/docker-compose.yml
-export PATH=/home/matt/.poetry/bin:./pythonenv/bin:./bin:/home/matt/.local/bin:/home/matt/bin:/usr/local/bin:/usr/local/share/npm/bin:/usr/local/mysql/bin:/home/matt/.cargo/bin:/home/matt/.local/kitty.app/bin:/usr/local/sbin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/local/go/bin
-
-chruby ruby 3.0.6
-
-alias vim=lvim
-
-# setxkbmap -option ctrl:swap_lalt_lctl
-
-alias de="docker exec -it musashi-web-1 "
-alias deb="docker exec -it musashi-web-1 bundle exec "
-alias det="docker exec -e DATABASE_URL="postgres://musashi:san@database/test_ue" -e RAILS_ENV=test -it musashi-web-1 "
-alias detb="docker exec -e DATABASE_URL="postgres://musashi:san@database/test_ue" -e RAILS_ENV=test -e SIMPLECOV=1 -it musashi-web-1 bundle exec "
-source /usr/share/nvm/init-nvm.sh
-alias kg="docker exec -it musashi-web-1 /bin/bash ps aux | grep -v grep | grep guard | awk '{print $2}' | xargs kill -9 "
-alias deg="det bundle exec guard"
-
-alias ls="eza"
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-ZSH_DISABLE_COMPFIX=1
+#
+eval "$(rbenv init - zsh)"
