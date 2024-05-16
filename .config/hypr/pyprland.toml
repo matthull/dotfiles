@@ -27,14 +27,6 @@ lazy = false
 unfocus = "hide"
 process_tracking = false
 
-[scratchpads.notion]
-animation = "fromLeft"
-class = "chrome-www.notion.so__userevidence_-Default"
-command = "google-chrome-stable --app=https://notion.so/userevidence"
-size = "25% 25%"
-lazy = false
-process_tracking = false
-
 [scratchpads.slack]
 animation = "fromLeft"
 class = "Slack"

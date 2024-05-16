@@ -100,3 +100,18 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
+source /usr/share/nvm/init-nvm.sh
+
+# autoload -Uz history-beginning-search-menu
+# zle -N history-beginning-search-menu
+# bindkey '^P' history-beginning-search-menu
+autoload -U history-search-end
+zle -N history-beginning-search-backward-end history-search-end
+zle -N history-beginning-search-forward-end history-search-end
+bindkey "^P" history-beginning-search-backward-end
+bindkey "^N" history-beginning-search-forward-end
+
+alias de="docker exec -it musashi-web-1 "
+alias deb="docker exec -it musashi-web-1 bundle exec "
+alias det="docker exec -e DATABASE_URL="postgres://musashi:san@database/test_ue" -e RAILS_ENV=test -it musashi-web-1 "
+alias detb="docker exec -e RAILS_ENV=test -it musashi-web-1 bundle exec "

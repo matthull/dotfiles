@@ -527,7 +527,26 @@ require('lazy').setup({
         --    https://github.com/pmizio/typescript-tools.nvim
         --
         -- But for many setups, the LSP (`tsserver`) will work just fine
-        -- tsserver = {},
+        tsserver = {
+          init_options = {
+            plugins = {
+              {
+                name = '@vue/typescript-plugin',
+                location = '/home/matt/.nvm/versions/node/v20.13.1/lib/node_modules/@vue/typescript-plugin',
+                languages = { 'javascript', 'typescript', 'vue' },
+              },
+            },
+          },
+          filetypes = {
+            'javascript',
+            'typescript',
+            'vue',
+          },
+        },
+        volar = {
+          filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json' },
+        },
+        eslint_d = {},
         --
 
         lua_ls = {
@@ -604,6 +623,9 @@ require('lazy').setup({
       end,
       formatters_by_ft = {
         lua = { 'stylua' },
+        javascript = { 'eslint_d' },
+        typescript = { 'eslint_d' },
+        vue = { 'eslint_d' },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
         --
@@ -764,9 +786,7 @@ require('lazy').setup({
       -- - sr)'  - [S]urround [R]eplace [)] [']
       require('mini.surround').setup()
 
-      require('mini.files').setup {
-        keys = '<leader>e<CR>',
-      }
+      require('mini.files').setup()
 
       -- Simple and easy statusline.
       --  You could remove this setup call if you don't like it,
