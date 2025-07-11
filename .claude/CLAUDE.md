@@ -45,11 +45,16 @@
   - `yadm add ~/.claude/CLAUDE.md`
   - `yadm commit -m "Update Claude Code workflow configuration"`
   - `yadm push`
+- **Proactive Config Updates:** Anticipate when user requests should be added to configuration
+  - When user asks to change a process, workflow, or preference
+  - When user corrects how something should be done
+  - When user establishes a new pattern or standard
+  - **Always ask:** "Should I add this to your configuration for future sessions?"
 
 **Pull Request Guidelines:**
 - **PR Title:** Always prefix with Linear ticket number from branch name (e.g., "UE-2958: Description")
-- **PR Template:** Use standard template when available (GitHub CLI auto-detects .github/pull_request_template.md)
-- **Draft PRs:** Use `gh pr create --draft --title "TICKET: Title"` (template will be used automatically)
+- **PR Template:** Use standard template with `--body-file .github/pull_request_template.md`
+- **Draft PRs:** Use `gh pr create --draft --title "TICKET: Title" --body-file .github/pull_request_template.md`
 
 ## TDD Workflow (Rails Backend Only)
 
