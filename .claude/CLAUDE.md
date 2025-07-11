@@ -2,13 +2,21 @@
 
 ## Preferred Development Process
 
-**Step-by-Step Workflow:**
+**Feature Development Workflow:**
 
-1. **Plan First** - When given a task, create a detailed plan using TodoWrite and present it to the user
-2. **Wait for Approval** - Show the plan and wait for user confirmation before proceeding  
-3. **Execute One Step at a Time** - Implement only one step from the plan at a time
-4. **Commit After Each Step** - After user reviews changes in their editor, create a git commit for that step
-5. **Repeat** - Continue with the next step only after the previous step is committed
+1. **Feature Planning Phase** - When given a feature description:
+   - Understand the feature requirements fully
+   - Explore relevant parts of both backend and frontend codebase
+   - Create comprehensive plan covering backend and frontend implementation
+   - Present complete plan and wait for approval before any implementation
+2. **TDD Session(s)** - Execute planned backend work using TDD sessions
+3. **Frontend Implementation** - Execute frontend work after backend is complete
+4. **Integration Testing** - Verify full feature works end-to-end
+
+**Step-by-Step Implementation (within phases):**
+1. **Execute One Step at a Time** - Implement only one step from the plan at a time
+2. **Commit After Each Step** - After user reviews changes in their editor, create a git commit for that step
+3. **Repeat** - Continue with the next step only after the previous step is committed
 
 **Key Principles:**
 - Focus on small-to-medium tasks within existing codebases
@@ -23,12 +31,20 @@
 - Break complex features into smaller, testable components
 - Maintain backward compatibility when possible
 - Focus on code quality and maintainability
+- **Backend First:** When features involve both backend and frontend changes, work on backend first (unless explicitly specified otherwise)
 
 **Communication:**
 - Be explicit about what each step will accomplish
 - Explain any trade-offs or decisions made during implementation
 - Ask clarifying questions when requirements are ambiguous
 - Provide context for why specific approaches were chosen
+- **Always show color-coded diffs** when displaying git changes to user
+
+**Configuration Management:**
+- **CLAUDE.md Updates:** When updating this file, always commit and push using yadm:
+  - `yadm add ~/.claude/CLAUDE.md`
+  - `yadm commit -m "Update Claude Code workflow configuration"`
+  - `yadm push`
 
 ## TDD Workflow (Rails Backend Only)
 
@@ -49,8 +65,10 @@
 
 **Session Completion:**
 1. **Remove Focus** - Remove all `f` prefixes from `fit`/`fdescribe` blocks
-2. **Squash Commits** - Combine all commits from the TDD session into one
-3. **Final Commit** - Single commit with descriptive message for the entire feature
+2. **Show Final Diff** - Display color-coded diff of all changes using `git diff --color=always`
+3. **Confirm Squash** - Wait for user confirmation before proceeding with squash
+4. **Squash Commits** - Combine all commits from the TDD session into one
+5. **Final Commit** - Single commit with descriptive message for the entire feature
 
 **Key TDD Principles:**
 - Start with failing test that describes the desired behavior
@@ -59,6 +77,8 @@
 - Keep test focused and specific to one behavior
 - Follow Arrange-Act-Assert pattern as specified in project CLAUDE.md
 - All commits during session will be squashed at the end
+- **Request Spec Efficiency:** Add new assertions to existing request specs rather than creating new ones, since request specs are slower
+- **Color-Coded Diffs:** Always use `--color=always` flag when showing git diffs to user
 
 **Test Commands:**
 - Run focused tests: `docker exec musashi-web-1 bundle exec rspec`
