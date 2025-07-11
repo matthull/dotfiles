@@ -40,6 +40,11 @@
 - Provide context for why specific approaches were chosen
 - **Always show color-coded diffs** when displaying git changes to user
 
+**Commit Process:**
+- **Always pause before commits** - Show `git diff --color=always` and ask for verification
+- **Never commit without approval** - Wait for user confirmation before proceeding
+- **Apply to all commits** - Not just TDD session squashes, but every single commit
+
 **Configuration Management:**
 - **CLAUDE.md Updates:** When updating this file, always commit and push using yadm:
   - `yadm add ~/.claude/CLAUDE.md`
@@ -89,6 +94,12 @@
 - All commits during session will be squashed at the end
 - **Request Spec Efficiency:** Add new assertions to existing request specs rather than creating new ones, since request specs are slower
 - **Color-Coded Diffs:** Always use `--color=always` flag when showing git diffs to user
+
+**Storybook Integration:**
+- **Always check for Storybook stories** when modifying components or backend models
+- **Update story data objects** to include new fields when backend models change
+- **Search pattern:** Use `find` and `grep` to locate stories that reference modified components
+- **Prevent runtime errors** by ensuring story data matches component expectations
 
 **Test Commands:**
 - Run focused tests: `docker exec musashi-web-1 bundle exec rspec`
