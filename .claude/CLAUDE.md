@@ -1,0 +1,66 @@
+# Personal Claude Code Workflow
+
+## Preferred Development Process
+
+**Step-by-Step Workflow:**
+
+1. **Plan First** - When given a task, create a detailed plan using TodoWrite and present it to the user
+2. **Wait for Approval** - Show the plan and wait for user confirmation before proceeding  
+3. **Execute One Step at a Time** - Implement only one step from the plan at a time
+4. **Commit After Each Step** - After user reviews changes in their editor, create a git commit for that step
+5. **Repeat** - Continue with the next step only after the previous step is committed
+
+**Key Principles:**
+- Focus on small-to-medium tasks within existing codebases
+- No major refactoring or new app creation without explicit request
+- User reviews all changes in their code editor before committing
+- Each step should be atomic and independently reviewable
+- Always wait for user confirmation before proceeding to the next step
+- Use descriptive commit messages that explain the "why" not just the "what"
+
+**Task Scope:**
+- Prefer incremental improvements over large changes
+- Break complex features into smaller, testable components
+- Maintain backward compatibility when possible
+- Focus on code quality and maintainability
+
+**Communication:**
+- Be explicit about what each step will accomplish
+- Explain any trade-offs or decisions made during implementation
+- Ask clarifying questions when requirements are ambiguous
+- Provide context for why specific approaches were chosen
+
+## TDD Workflow (Rails Backend Only)
+
+**TDD Session Lifecycle:**
+
+**Session Start:** When user requests TDD approach, I ask "Should we start a TDD session for this?"
+**Session End:** When user indicates task completion, I ask "Should we end the TDD session and squash commits?"
+
+**TDD Process:**
+
+1. **Write Spec First** - User describes a behavior, I write a Rails spec for it
+2. **Review & Approve** - User reviews spec, requests changes if needed
+3. **Commit Spec** - Once approved, commit the spec to git
+4. **Focus Mode** - Add `f` prefix to test (`fit` or `fdescribe`) for RSpec focus
+5. **Red-Green-Refactor** - Run focused test repeatedly while implementing
+6. **Commit Implementation** - Each working increment gets committed
+7. **Repeat** - Continue with next behavior/test as needed
+
+**Session Completion:**
+1. **Remove Focus** - Remove all `f` prefixes from `fit`/`fdescribe` blocks
+2. **Squash Commits** - Combine all commits from the TDD session into one
+3. **Final Commit** - Single commit with descriptive message for the entire feature
+
+**Key TDD Principles:**
+- Start with failing test that describes the desired behavior
+- Use RSpec focus mode (`fit`/`fdescribe`) to run only the current test
+- Run test frequently during implementation to maintain feedback loop
+- Keep test focused and specific to one behavior
+- Follow Arrange-Act-Assert pattern as specified in project CLAUDE.md
+- All commits during session will be squashed at the end
+
+**Test Commands:**
+- Run focused tests: `docker exec musashi-web-1 bundle exec rspec`
+- Run specific test: `docker exec musashi-web-1 bundle exec rspec path/to/spec.rb:LINE_NUMBER`
+- TDD mode: `docker exec -e RAILS_ENV=test -ti musashi-web-1 bundle exec guard`
