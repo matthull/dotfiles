@@ -48,8 +48,8 @@
 
 **Pull Request Guidelines:**
 - **PR Title:** Always prefix with Linear ticket number from branch name (e.g., "UE-2958: Description")
-- **PR Body:** Don't set a body unless explicitly requested by user
-- **Draft PRs:** Use `gh pr create --draft --title "TICKET: Title"` format
+- **PR Template:** Use standard template when available (GitHub CLI auto-detects .github/pull_request_template.md)
+- **Draft PRs:** Use `gh pr create --draft --title "TICKET: Title"` (template will be used automatically)
 
 ## TDD Workflow (Rails Backend Only)
 
