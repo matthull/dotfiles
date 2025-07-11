@@ -46,6 +46,11 @@
   - `yadm commit -m "Update Claude Code workflow configuration"`
   - `yadm push`
 
+**Pull Request Guidelines:**
+- **PR Title:** Always prefix with Linear ticket number from branch name (e.g., "UE-2958: Description")
+- **PR Body:** Don't set a body unless explicitly requested by user
+- **Draft PRs:** Use `gh pr create --draft --title "TICKET: Title"` format
+
 ## TDD Workflow (Rails Backend Only)
 
 **TDD Session Lifecycle:**
