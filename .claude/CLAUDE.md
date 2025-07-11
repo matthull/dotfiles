@@ -12,6 +12,7 @@
 2. **TDD Session(s)** - Execute planned backend work using TDD sessions
 3. **Frontend Implementation** - Execute frontend work after backend is complete
 4. **Integration Testing** - Verify full feature works end-to-end
+5. **Manual Testing Request** - Explicitly ask user to manually test the feature before considering it complete
 
 **Step-by-Step Implementation (within phases):**
 1. **Execute One Step at a Time** - Implement only one step from the plan at a time
