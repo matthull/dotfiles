@@ -115,3 +115,12 @@ alias de="docker exec -it musashi-web-1 "
 alias deb="docker exec -it musashi-web-1 bundle exec "
 alias det="docker exec -e DATABASE_URL="postgres://musashi:san@database/test_ue" -e RAILS_ENV=test -it musashi-web-1 "
 alias detb="docker exec -e RAILS_ENV=test -it musashi-web-1 bundle exec "
+
+source /usr/local/share/chruby/chruby.sh
+
+chruby 3.2.2
+
+export FLYCTL_INSTALL="/home/matt/.fly"
+export PATH="$FLYCTL_INSTALL/bin:$PATH"
+# alias cd=zoxide
+alias ac=arduino-cli
