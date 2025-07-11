@@ -28,17 +28,9 @@ unfocus = "hide"
 process_tracking = false
 
 [scratchpads.slack]
-animation = "fromLeft"
-class = "Slack"
-command = "slack"
-size = "70% 90%"
-lazy = true
-process_tracking = false
-
-[scratchpads.spotify]
 animation = "fromBottom"
-class = "Spotify"
-command = "spotify"
+class = "Slack"
+command = "/usr/bin/slack --disable-gpu-compositing --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-features=WebRTCPipeWireCapturer --enable-features=WaylandWindowDecorations -s %U"
 size = "70% 90%"
 lazy = false
-unfocus = "hide"
+process_tracking = false

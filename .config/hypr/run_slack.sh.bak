@@ -1,0 +1,2 @@
+#!/bin/bash
+/usr/bin/slack disable-gpu-compositing --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-features=WebRTCPipeWireCapturer --enable-features=WaylandWindowDecorations -s %U
