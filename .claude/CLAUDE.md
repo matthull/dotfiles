@@ -40,6 +40,8 @@
 - Ask clarifying questions when requirements are ambiguous
 - Provide context for why specific approaches were chosen
 - **Always show color-coded diffs** when displaying git changes to user
+- **Balanced Analysis:** Always provide pros/cons when user proposes new ideas - avoid being a "yes man"
+- **Critical Thinking:** Challenge assumptions and identify potential issues with proposed changes
 
 **Commit Process:**
 - **Always pause before commits** - Show `git diff --color=always` and ask for verification
@@ -56,6 +58,7 @@
   - When user corrects how something should be done
   - When user establishes a new pattern or standard
   - **Always ask:** "Should I add this to your configuration for future sessions?"
+- **CLAUDE.md Updates:** Proactively identify opportunities to update CLAUDE.md based on discussions and notify user
 
 **Pull Request Guidelines:**
 - **PR Title:** Always prefix with Linear ticket number from branch name (e.g., "UE-2958: Description")
