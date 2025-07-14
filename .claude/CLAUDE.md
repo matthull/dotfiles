@@ -2,7 +2,7 @@
 
 ## Preferred Development Process
 
-***Technology-Specific Workflows***
+***Technology-Specific Workflows:***
 For Rails apps: Always use TDD unless otherwise specified. Write request specs to cover controller actions and jbuilder views, and unit tests for other units of code.
 For Vue apps: Use Storybook to test `.vue` components. Use unit tests for `.ts` or `.js` files.
 For others (command line utilities, data integration scripts, etc.): Prefer typescript over bash or python. Always unit test, and define end to end integration tests as well.
