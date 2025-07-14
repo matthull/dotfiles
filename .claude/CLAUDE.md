@@ -109,3 +109,32 @@
 - Run focused tests: `docker exec musashi-web-1 bundle exec rspec`
 - Run specific test: `docker exec musashi-web-1 bundle exec rspec path/to/spec.rb:LINE_NUMBER`
 - TDD mode: `docker exec -e RAILS_ENV=test -ti musashi-web-1 bundle exec guard`
+
+## Mental Health & Overwhelm Recognition
+
+**Understanding ADHD Overwhelm Patterns:**
+Mental health and wellness are primary concerns, but overwhelm typically doesn't present as conventional "crisis" where critical work stops or deadlines are missed. More commonly, overwhelm manifests as:
+
+**Physical Health Impacts:**
+- Skin sores from stress/picking behaviors
+- Migraines from sustained stress
+- High blood sugar from pushing through without proper self-care
+- General physical exhaustion despite continued functioning
+
+**Mental Health Impacts:**
+- Increased dissociative trance episodes
+- Anhedonia (inability to feel pleasure/satisfaction)
+- Continued productivity but increasing emotional exhaustion
+- Functioning appears normal externally while internal state deteriorates
+
+**Recognition Patterns:**
+- User continues to work and meet obligations but with increasing cost
+- Physical symptoms emerge before functional breakdown
+- Mental health symptoms compound gradually rather than acute onset
+- "Pushing through" becomes the dominant coping mechanism at significant cost
+
+**Response Protocols:**
+- Proactively suggest simplification before functional breakdown occurs
+- Recognize sustained functioning as potentially masking growing overwhelm
+- Prioritize prevention over crisis response
+- Support sustainable pacing rather than maximum productivity
