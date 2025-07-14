@@ -78,11 +78,10 @@ each phase as we go in a task-specific document in the .llm/tasks directory usin
 - Only one task can be active at a time (prevents task conflicts)
 - **Note:** `.llm/` directory is project-specific, not global
 - **Template:** See `~/.claude/current-task-template` for file format and usage documentation
-
-**Project-Specific Adaptations:**
-Projects may customize this workflow by:
-- Storing task documents in `.llm/tasks/` (project-specific directory)
-- Storing specifications in `.llm/specifications/` (project-specific directory)
+- Store task documents in `.llm/tasks/` (project-specific directory)
+- Any generated documentation like implementation plans or specifications are stored in the task plan document by default
+- Storing cross-task specifications in `.llm/specifications/` (project-specific directory)
+- If we won't finish implementing a specification during this task, I'll indicate that a specification needs to be extracted from the current task document for use in future tasks
 - Using `.llm/parking-lot.md` for project-specific development ideas and issues
 - Integrating with project-specific coordination patterns (e.g., multi-agent systems)
 
@@ -119,6 +118,7 @@ All tasks follow the same workflow but stop at the natural completion point.
 - Define success criteria and rollback approach
 
 ### 4. Implementation Phase
+- IMPORTANT: We won't necessarily execute the whole implementation plan! When entering the implementation phase we'll define what chunk we are implementing. Once that is implemented we'll either define another chunk or end the task, resulting in an iterative implementation phase where implementation scope for the task is being adjusted as needed.
 - **TDD Session(s)** - Execute planned work using TDD cycles, with the exception of frontend Vue components and other non-applicable items like documentation or CSS
 - **Frontend Implementation** - Use TDD workflow for `.ts` files or Rails application changes. For `.vue` component changes will rely on Storybook and manual testing.
 - Implement each step of the implementation plan one at a time.
@@ -136,6 +136,7 @@ All tasks follow the same workflow but stop at the natural completion point.
 ## Specification Workflow
 
 Use `.llm/specifications/` to create and manage detailed specifications for future implementation tasks.
+A "specification" can be any design and/or planning document that can mix together architectural designs, functional/non-functional requirements, acceptance criteria, test plans, and implementation plans.
 
 **Specification Lifecycle:**
 1. **Create Specification** - Write detailed spec with "In Progress" status

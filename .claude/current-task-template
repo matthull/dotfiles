@@ -1,0 +1,16 @@
+# Current Task Tracking
+
+This file tracks the currently active task. When a task is in progress, this file contains the branch name.
+
+Format: Simple text file containing just the branch name.
+
+Example contents:
+```
+fix-calendar-integration
+```
+
+The file is:
+- Created by `/start-task` command
+- Read by `/end-task` command  
+- Removed by `/end-task` command
+- Used to prevent starting multiple tasks simultaneously
